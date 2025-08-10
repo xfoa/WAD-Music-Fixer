@@ -187,7 +187,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Ask user for confirmation before appending new lumps
-    printf("Found %u music lumps to append. Do you want to continue? (y/n): ", music_aliases->numLumps);
+    printf("Created %u music lump aliases to append. Do you want to continue? (y/n): ", music_aliases->numLumps);
     char response;
     scanf(" %c", &response);
     if (response != 'y' && response != 'Y') {
