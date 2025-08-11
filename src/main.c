@@ -154,7 +154,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
     else {
-        printf("%d Lumps read successfully:\n", lumps_read);
+        printf("%ld Lumps read successfully:\n", lumps_read);
     }
 
     // Process each lump
@@ -189,7 +189,16 @@ int main(int argc, char *argv[]) {
     // Ask user for confirmation before appending new lumps
     printf("Created %u music lump aliases to append. Do you want to continue? (y/n): ", music_aliases->numLumps);
     char response;
-    scanf(" %c", &response);
+    char input_buffer[16];
+    if (!fgets(input_buffer, sizeof(input_buffer), stdin)) {
+        fprintf(stderr, "Error reading input.\n");
+        free(music_aliases->lumps);
+        free(music_aliases);
+        free(lumps);
+        fclose(wadfile_h);
+        return 1;
+    }
+    response = input_buffer[0];
     if (response != 'y' && response != 'Y') {
         printf("Operation cancelled by user.\n");
         free(music_aliases->lumps);
