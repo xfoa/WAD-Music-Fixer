@@ -9,6 +9,10 @@ Actual music data isn't duplicated, only new lump entries are made, and referenc
 
 Note: this program will only alias a maximum of 36 WADs for Ultimate Doom, and 32 for Doom 2, as these are the amount of levels in these games.
 
+## Compiling
+
+```make```
+
 ## Usage
 
 ```wad_music_fixer [--help] <WAD file>```
